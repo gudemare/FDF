@@ -6,13 +6,13 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 06:35:30 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/11 07:39:05 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/11 13:22:19 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	draw_line(t_fdf *mlx, int x1, int y1)
+void	draw_line(t_fdf *mlx, int x1, int y1, int col)
 {
 	float	dx;
 	float	dy;
@@ -26,7 +26,7 @@ void	draw_line(t_fdf *mlx, int x1, int y1)
 	while (i < px_count)
 	{
 		pxput(mlx, mlx->x + (dx / px_count) * i,
-				mlx->y + (dy / px_count) * i, 255);
+				mlx->y + (dy / px_count) * i, col);
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 02:46:48 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/11 12:44:43 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/11 13:13:49 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int				handle_key(int keycode, void *param);
 void			parse_map(t_fdf *d, char *filename);
 void			fill_grid(t_fdf *d, char *s);
 
-void			draw_line(t_fdf *mlx, int x1, int y1);
+void			draw_line(t_fdf *mlx, int x1, int y1, int col);
 void			pxput(t_fdf*mlx, int x, int y, int color);
 
 #endif
