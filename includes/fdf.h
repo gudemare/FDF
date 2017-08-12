@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 02:46:48 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/12 16:11:18 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/12 20:32:27 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,9 @@ enum			e_key
 	k_SHIFT_L = 257,
 	k_SHIFT_R = 258,
 	k_KeyPressMask = (1L << 0),
-	k_KeyReleaseMask = (1L << 1)
+	k_KeyReleaseMask = (1L << 1),
+	k_KeyPress = 2,
+	k_KeyRelease = 3
 };
 
 int				fdf_loop(void	*param);

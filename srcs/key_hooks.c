@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 07:04:16 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/12 15:47:14 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/12 20:34:37 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,10 @@ int			handle_key(int keycode, void *param)
 
 int		handle_key_press(int x_event, void *param)
 {
-	ft_printf("Called with press event %d\n", x_event);
-	(void)param;
-	return (1);
-}
-
-int		handle_key_release(int x_event, void *param)
-{
 	t_fdf *d;
 
 	d = param;
-	ft_printf("Called with release %d\n",x_event);
+	ft_printf("Called with press event %d\n", x_event);
 	if (x_event == k_ESC)
 		quit(d);
 	else if (x_event == k_LEFT)
@@ -97,5 +90,12 @@ int		handle_key_release(int x_event, void *param)
 	}
 	else
 		ft_printf("Non-handled key pressed : %d.\n", x_event);
+	return (1);
+}
+
+int		handle_key_release(int x_event, void *param)
+{
+	ft_printf("Called with release %d\n",x_event);
+	(void)param;
 	return (1);
 }

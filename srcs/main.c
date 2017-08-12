@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 02:47:44 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/12 16:11:18 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/12 20:32:27 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ int		main(int ac, char **av)
 	d.l_size_4 = d.l_size / 4;
 	mlx_loop_hook(d.mlx, &fdf_loop, &d);
 	mlx_key_hook(d.win, &handle_key, &d);
-	mlx_hook(d.win, 2, k_KeyPressMask,
+	mlx_hook(d.win, k_KeyPress, k_KeyPressMask,
                  &handle_key_press, &d);
-	mlx_hook(d.win, 2, k_KeyReleaseMask,
+	mlx_hook(d.win, k_KeyRelease, k_KeyReleaseMask,
                  &handle_key_release, &d);
 	fdf_loop(&d);
 	mlx_loop(d.mlx);
