@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 07:39:49 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/12 07:31:57 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/12 07:47:23 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,19 +95,14 @@ static void	get_grid(int fd, t_fdf *d)
 	char	*entry;
 
 	entry = NULL;
-	ft_putendl("Allocating");
 	if (ft_read(NULL, fd, &entry, 0) == -1)
 		ft_assert(NULL);
 	ft_assert(entry);
-	ft_putstr("Width : ");
 	d->map_width = count_points_in_lines(entry);
 	ft_printf("%d\n", d->map_width);
-	ft_putstr("Height : ");
 	d->map_height = ft_strchr_count(entry, '\n');
 	ft_printf("%d\n", d->map_height);
-	ft_putendl("grid fill");
 	fill_grid(d, entry);
-	ft_putendl("done");
 	free(entry);
 }
 

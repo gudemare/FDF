@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 11:37:04 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/12 05:56:09 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/12 07:47:23 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,6 @@ void		fill_grid(t_fdf *d, char *s)
 		}
 		i++;
 	}
-	ft_putendl("Grid filled. State = [");
-	ft_putgrid(d);
-	ft_putendl("]");
 	while (s[i] && s[i] == ' ')
 		i++;
 	if (s[i])
