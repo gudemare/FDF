@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 06:35:30 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/12 08:13:42 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/12 09:38:30 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	draw_line(t_fdf *mlx, int x1, int y1, int col)
 	int		px_count;
 	int		i;
 
-	if (((x1 < 0 || x1 >= WIDTH) && (mlx->x < 0 || mlx->x >= WIDTH))
-		|| ((y1 < 0 || y1 >= HEIGHT) && (mlx->y < 0 || mlx->y >= HEIGHT)))
+	if ((x1 < 0 && mlx->x < 0) || (x1 >= WIDTH || mlx->x >= WIDTH)
+		|| (y1 < 0 && mlx->y < 0) || (y1 >+ HEIGHT && mlx->y >= HEIGHT))
 		return ;
 	dx = x1 - mlx->x;
 	dy = y1 - mlx->y;

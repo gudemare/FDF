@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 07:39:49 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/12 07:48:01 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/12 11:47:43 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ static int	next_point(char *s)
 	if (!s[i] || ft_isdigit(s[i]) || s[i] == '\n' || s[i] == '-' || s[i] == '+')
 		return (i);
 	ft_dprintf(2, "Invalid file : bad number formating.\n");
-	ft_printf("[%.50s]", s + i);
 	exit(EXIT_FAILURE);
 }
 
@@ -93,10 +92,11 @@ static int	count_points_in_lines(char *s)
 static void	get_grid(int fd, t_fdf *d)
 {
 	char	*entry;
+	int		ret;
 
 	entry = NULL;
-	if (ft_read(NULL, fd, &entry, 0) == -1)
-		ft_assert(NULL);
+	if ((ret = ft_read(NULL, fd, &entry, 0)) < 0)
+		ft_errno_exit((ret == -1), 1);
 	ft_assert(entry);
 	d->map_width = count_points_in_lines(entry);
 	d->map_height = ft_strchr_count(entry, '\n');
