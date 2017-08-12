@@ -6,7 +6,7 @@
 #    By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/18 01:13:53 by gudemare          #+#    #+#              #
-#    Updated: 2017/08/11 10:59:50 by gudemare         ###   ########.fr        #
+#    Updated: 2017/08/12 11:23:06 by gudemare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,6 +106,7 @@ SRCS_LIST		=	\
 					string/ft_strcat.c \
 					string/ft_strchr.c \
 					string/ft_strchr_count.c \
+					string/ft_errno_exit.c \
 					string/ft_strchr_loc.c \
 					string/ft_strchrnul.c \
 					string/ft_strclr.c \

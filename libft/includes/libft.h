@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 00:06:46 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/11 10:59:51 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/12 11:44:11 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,6 +215,7 @@ void				ft_strclr(char *s);
 void				ft_strdel(char **as);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
+void				ft_errno_exit(int display_errno, int should_exit);
 
 /*
 **          <==================== Wide String functions ====================> **
