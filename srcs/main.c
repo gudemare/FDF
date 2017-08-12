@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 02:47:44 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/11 13:24:54 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/12 05:55:20 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,14 @@ int		main(int ac, char **av)
 		return (-1);
 	}
 	parse_map(&d, av[1]);
+	ft_putendl("Map parsed");
 	d.mlx = mlx_init();
 	d.win = mlx_new_window(d.mlx, WIDTH, HEIGHT, "fdf");
 	d.img = mlx_new_image(d.mlx, WIDTH, HEIGHT);
 	d.addr = mlx_get_data_addr(d.img, &d.bpp, &d.l_size, &d.endian);
 	mlx_loop_hook(d.mlx, &fdf_loop, &d);
 	mlx_key_hook(d.win, &handle_key, &d);
+	ft_putendl("Loop beginning");
 	fdf_loop(&d);
 	mlx_loop(d.mlx);
 	return (0);

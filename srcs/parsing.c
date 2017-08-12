@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 07:39:49 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/11 14:00:58 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/12 07:31:57 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,21 @@ static int	next_point(char *s)
 		while (ft_isxdigit(s[i]))
 			i++;
 	}
-	if (!s[i] || s[i] == ' ' || s[i] == '\n')
+	while (s[i] && s[i] == ' ')
+		i++;
+	if (!s[i] || ft_isdigit(s[i]) || s[i] == '\n' || s[i] == '-' || s[i] == '+')
 		return (i);
 	ft_dprintf(2, "Invalid file : bad number formating.\n");
+	ft_printf("[%.50s]", s + i);
 	exit(EXIT_FAILURE);
 }
 
 static void	compare_points_in_lines(char *s, int i, int ret)
 {
 	int		actual;
+	int		line;
 
+	line = 2;
 	actual = 0;
 	while (s[i])
 	{
@@ -62,9 +67,10 @@ static void	compare_points_in_lines(char *s, int i, int ret)
 		}
 		if (actual != ret)
 		{
-			ft_dprintf(2, "Invalid file : incoherent lines lengths\n");
+			ft_dprintf(2, "Invalid file : incoherent lines lengths at line %d (actual = %d, ret = %d)\n", line, actual, ret);
 			exit(EXIT_FAILURE);
 		}
+		line++;
 	}
 }
 
@@ -93,10 +99,12 @@ static void	get_grid(int fd, t_fdf *d)
 	if (ft_read(NULL, fd, &entry, 0) == -1)
 		ft_assert(NULL);
 	ft_assert(entry);
-	ft_putendl("Width");
+	ft_putstr("Width : ");
 	d->map_width = count_points_in_lines(entry);
-	ft_putendl("Height");
+	ft_printf("%d\n", d->map_width);
+	ft_putstr("Height : ");
 	d->map_height = ft_strchr_count(entry, '\n');
+	ft_printf("%d\n", d->map_height);
 	ft_putendl("grid fill");
 	fill_grid(d, entry);
 	ft_putendl("done");

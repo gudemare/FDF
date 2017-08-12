@@ -6,7 +6,7 @@
 #    By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/18 01:13:53 by gudemare          #+#    #+#              #
-#    Updated: 2017/08/11 11:40:34 by gudemare         ###   ########.fr        #
+#    Updated: 2017/08/12 06:14:56 by gudemare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ WHITE_BG		=	\e[47m
 #==============================================================================#
 #                                 Instructions                                 #
 #==============================================================================#
-.PHONY : all norme clean fclean re debug debug_lib debug_re $(LIBS) $(SUBPROJECTS)
+.PHONY : all norme clean fclean re debug debug_lib debug_re project_re $(LIBS) $(SUBPROJECTS)
 
 all: $(NAME)
 
@@ -109,6 +109,10 @@ fclean :
 	@printf "$(YELLOW)The program $(BOLD)$(NAME)$(END_GRAPHICS)$(YELLOW) and its projects files have been removed.$(END_GRAPHICS)\n"
 
 re: fclean all
+
+project_re:
+	@rm -rf $(OBJS_DIR) $(NAME)
+	@make
 
 debug_lib :
 	@make -C $(LIBFT_DIR) -j8 debug
