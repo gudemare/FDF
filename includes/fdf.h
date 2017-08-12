@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 02:46:48 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/12 06:16:48 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/12 09:10:30 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include "mlx.h"
 # include <math.h>
 
-# define WIDTH 1920
-# define HEIGHT 1080
+# define WIDTH 2560
+# define HEIGHT 1440
 
 typedef struct	s_fdf
 {
@@ -34,6 +34,9 @@ typedef struct	s_fdf
 	int			map_width;
 	int			x;
 	int			y;
+	int			x_offset;
+	int			y_offset;
+	int			zoom;
 }				t_fdf;
 
 enum			e_key

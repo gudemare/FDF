@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 07:39:49 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/12 07:47:23 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/12 07:48:01 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,7 @@ static void	get_grid(int fd, t_fdf *d)
 		ft_assert(NULL);
 	ft_assert(entry);
 	d->map_width = count_points_in_lines(entry);
-	ft_printf("%d\n", d->map_width);
 	d->map_height = ft_strchr_count(entry, '\n');
-	ft_printf("%d\n", d->map_height);
 	fill_grid(d, entry);
 	free(entry);
 }

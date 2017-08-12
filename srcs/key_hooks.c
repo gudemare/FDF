@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 07:04:16 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/11 09:10:11 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/12 09:17:23 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,18 @@ int			handle_key(int keycode, void *param)
 	d = param;
 	if (keycode == k_ESC)
 		quit(d);
+	else if (keycode == k_LEFT)
+		d->x_offset += d->map_width / (d->zoom * 10);
+	else if (keycode == k_RIGHT)
+		d->x_offset -= d->map_width / (d->zoom * 10);
+	else if (keycode == k_UP)
+		d->y_offset += d->map_height / (d->zoom * 10);
+	else if (keycode == k_DOWN)
+		d->y_offset -= d->map_height / (d->zoom * 10);
+	else if (keycode == k_KP_P)
+		d->zoom++;
+	else if (keycode == k_KP_M)
+		d->zoom--;
 	else
 		ft_printf("Non-handled key pressed : %d.\n", keycode);
 	return (1);
