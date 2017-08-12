@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 02:46:48 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/12 09:10:30 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/12 16:11:18 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ typedef struct	s_fdf
 	char		*addr;
 	int			bpp;
 	int			l_size;
+	int			l_size_4;
 	int			endian;
 	int			**grid;
+	int			**color;
 	int			map_height;
 	int			map_width;
 	int			x;
@@ -78,11 +80,15 @@ enum			e_key
 	k_CTRL_L = 256,
 	k_CTRL_R = 269,
 	k_SHIFT_L = 257,
-	k_SHIFT_R = 258
+	k_SHIFT_R = 258,
+	k_KeyPressMask = (1L << 0),
+	k_KeyReleaseMask = (1L << 1)
 };
 
 int				fdf_loop(void	*param);
 int				handle_key(int keycode, void *param);
+int				handle_key_press(int x_event, void *param);
+int				handle_key_release(int x_event, void *param);
 
 void			parse_map(t_fdf *d, char *filename);
 void			fill_grid(t_fdf *d, char *s);

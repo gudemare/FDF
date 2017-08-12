@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 06:35:30 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/12 09:38:30 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/12 16:15:34 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	draw_line(t_fdf *mlx, int x1, int y1, int col)
 	int		i;
 
 	if ((x1 < 0 && mlx->x < 0) || (x1 >= WIDTH || mlx->x >= WIDTH)
-		|| (y1 < 0 && mlx->y < 0) || (y1 >+ HEIGHT && mlx->y >= HEIGHT))
+		|| (y1 < 0 && mlx->y < 0) || (y1 > HEIGHT && mlx->y >= HEIGHT))
 		return ;
 	dx = x1 - mlx->x;
 	dy = y1 - mlx->y;
@@ -36,12 +36,7 @@ void	draw_line(t_fdf *mlx, int x1, int y1, int col)
 
 void	pxput(t_fdf *mlx, int x, int y, int color)
 {
-	int	pos;
-
 	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
 		return ;
-	pos = (x * mlx->bpp / 8) + (y * mlx->l_size);
-	mlx->addr[pos + 0] = color;
-	mlx->addr[pos + 1] = color >> 8;
-	mlx->addr[pos + 2] = color >> 16;
+	*((int*)mlx->addr + (x) + (y * mlx->l_size_4)) = color;
 }

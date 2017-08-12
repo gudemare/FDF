@@ -6,7 +6,7 @@
 #    By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/18 01:13:53 by gudemare          #+#    #+#              #
-#    Updated: 2017/08/12 06:14:56 by gudemare         ###   ########.fr        #
+#    Updated: 2017/08/12 14:50:13 by gudemare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ HEADERS_LIB		=	libft/includes
 HEADERS_DIR		=	includes/
 HFLAGS			=	-I $(HEADERS_DIR) -I $(HEADERS_LIB) -I $(MLX_DIR)
 
-LFLAGS			=	-lft -L$(LIBFT_DIR) -lmlx -framework OpenGL -framework AppKit -L$(MLX_DIR) -lm
+LFLAGS			=	-lft -L$(LIBFT_DIR) -lmlx -framework OpenGL -framework AppKit -L$(MLX_DIR) -lm -L/usr/X11/lib -lXext -lX11
 
 SRCS_DIR		=	srcs/
 SRCS_LIST		=	\
