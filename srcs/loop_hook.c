@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 06:37:01 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/13 16:53:23 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/13 21:31:08 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,30 @@ void	draw_cases(t_fdf *d)
 	}
 }
 
+void	apply_key(t_fdf *d)
+{
+	if (d->keys & k_p_LEFT)
+		d->x_offset -= 10;
+	if (d->keys & k_p_RIGHT)
+		d->x_offset += 10;
+	if (d->keys & k_p_UP)
+		d->y_offset -= 10;
+	if (d->keys & k_p_DOWN)
+		d->y_offset += 10;
+}
+
 int		fdf_loop(void *param)
 {
 	t_fdf		*d;
-	static int	prev_x_offset = 1;
-	static int	prev_y_offset = 1;
-	static int	prev_zoom = 0;
 
 	d = (t_fdf *)param;
-	if (prev_x_offset == d->x_offset && prev_y_offset == d->y_offset
-		&& prev_zoom == d->zoom)
-		return (1);
+	if (!(d->keys))
+		return (inactive_loop((t_fdf *)param));
+	apply_key(d);
 	mlx_destroy_image(d->mlx, d->img);
 	d->img = mlx_new_image(d->mlx, WIDTH, HEIGHT);
 	draw_cases(d);
-	prev_x_offset = d->x_offset;
-	prev_y_offset = d->y_offset;
-	prev_zoom = d->zoom;
 	mlx_put_image_to_window(d->mlx, d->win, d->img, 0, 0);
+	d->keys &= ~k_p_NOT_DRAWN;
 	return (1);
 }
