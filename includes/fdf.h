@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 02:46:48 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/12 20:32:27 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/12 22:12:31 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,16 +87,16 @@ enum			e_key
 	k_KeyRelease = 3
 };
 
-int				fdf_loop(void	*param);
-int				handle_key(int keycode, void *param);
+int				fdf_loop(void *param);
 int				handle_key_press(int x_event, void *param);
 int				handle_key_release(int x_event, void *param);
 
 void			parse_map(t_fdf *d, char *filename);
 void			fill_grid(t_fdf *d, char *s);
 
-void			draw_line(t_fdf *mlx, int x1, int y1, int col);
-void			pxput(t_fdf*mlx, int x, int y, int color);
+void			draw_line(t_fdf *d, int x1, int y1, int col);
+void			draw_h_line(t_fdf *d, int x1, int col);
+void			draw_square(t_fdf *d, int size, int color);
+void			pxput(t_fdf*d, int x, int y, int color);
 
-void	ft_putgrid(t_fdf *d);
 #endif

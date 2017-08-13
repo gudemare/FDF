@@ -6,32 +6,12 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 02:47:44 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/12 20:32:27 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/13 17:28:38 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "fdf.h"
-
-void	ft_putgrid(t_fdf *d)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	while (i < d->map_height)
-	{
-		j = 0;
-		while (j < d->map_width)
-		{
-			ft_putnbr(d->grid[i][j]);
-			ft_putchar(' ');
-			j++;
-		}
-		ft_putchar('\n');
-		i++;
-	}
-}
 
 int		main(int ac, char **av)
 {
@@ -53,13 +33,11 @@ int		main(int ac, char **av)
 	d.y_offset = 0;
 	d.zoom = 1;
 	d.l_size_4 = d.l_size / 4;
-	mlx_loop_hook(d.mlx, &fdf_loop, &d);
-	mlx_key_hook(d.win, &handle_key, &d);
 	mlx_hook(d.win, k_KeyPress, k_KeyPressMask,
-                 &handle_key_press, &d);
+			&handle_key_press, &d);
 	mlx_hook(d.win, k_KeyRelease, k_KeyReleaseMask,
-                 &handle_key_release, &d);
-	fdf_loop(&d);
+			&handle_key_release, &d);
+	mlx_loop_hook(d.mlx, &fdf_loop, &d);
 	mlx_loop(d.mlx);
 	return (0);
 }

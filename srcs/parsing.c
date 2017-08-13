@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 07:39:49 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/12 14:59:45 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/12 21:27:38 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,24 +49,21 @@ static void	compare_points_in_lines(char *s, int i, int ret)
 	int		line;
 
 	line = 2;
-	actual = 0;
 	while (s[i])
 	{
 		while (s[i] && s[i] == ' ')
 			i++;
-		if (s[i] == '\n')
-			i++;
+		i += (s[i] == '\n');
 		if (!s[i])
-			break ;
+			return ;
 		actual = 0;
-		while (s[i] && s[i] != '\n')
-		{
-			i += next_point(s + i);
+		while (s[i] && s[i] != '\n' && (i += next_point(s + i)))
 			actual++;
-		}
 		if (actual != ret)
 		{
-			ft_dprintf(2, "Invalid file : incoherent lines lengths at line %d (actual = %d, ret = %d)\n", line, actual, ret);
+			ft_dprintf(2, "Invalid file :\
+incoherent lines lengths at line %d (actual = %d, ret = %d)\n"\
+			, line, actual, ret);
 			exit(EXIT_FAILURE);
 		}
 		line++;
