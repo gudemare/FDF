@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 06:37:01 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/14 23:10:31 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/14 23:14:46 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int		get_case_size(t_fdf *d)
 {
 	return (ft_max(ft_min(HEIGHT / d->map_height,
-		WIDTH / d->map_width), 1) * d->zoom);
+		WIDTH / d->map_width), 1) + d->zoom);
 }
 
 void	draw_cases(t_fdf *d)
