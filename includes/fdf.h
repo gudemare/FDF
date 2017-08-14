@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 02:46:48 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/13 21:10:38 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/14 22:50:50 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ typedef struct	s_fdf
 	int					y_offset;
 	int					zoom;
 	int					keys;
+	int					*bitshifts;
 }				t_fdf;
+
+# define MAX_KEYCODE 269
 
 enum			e_keycodes
 {
@@ -90,23 +93,25 @@ enum			e_keycodes
 
 enum			e_keys_pressed
 {
-	k_p_KP_1 = 1 << 1,
-	k_p_KP_2 = 1 << 2,
-	k_p_KP_3 = 1 << 3,
-	k_p_KP_4 = 1 << 4,
-	k_p_KP_5 = 1 << 5,
-	k_p_KP_6 = 1 << 6,
-	k_p_KP_7 = 1 << 7,
-	k_p_KP_8 = 1 << 8,
-	k_p_KP_9 = 1 << 9,
-	k_p_LEFT = 1 << 10,
-	k_p_RIGHT = 1 << 11,
-	k_p_DOWN = 1 << 12,
-	k_p_UP = 1 << 13,
-	k_p_CTRL_L = 1 << 14,
-	k_p_SHIFT_L = 1 << 15,
-	k_p_SHIFT_R = 1 << 16,
-	k_p_CTRL_R = 1 << 17,
+	k_p_KP_P = 1 << 1,
+	k_p_KP_M = 1 << 2,
+	k_p_KP_1 = 1 << 3,
+	k_p_KP_2 = 1 << 4,
+	k_p_KP_3 = 1 << 5,
+	k_p_KP_4 = 1 << 6,
+	k_p_KP_5 = 1 << 7,
+	k_p_KP_6 = 1 << 8,
+	k_p_KP_7 = 1 << 9,
+	k_p_KP_8 = 1 << 10,
+	k_p_KP_9 = 1 << 11,
+	k_p_LEFT = 1 << 12,
+	k_p_RIGHT = 1 << 13,
+	k_p_DOWN = 1 << 14,
+	k_p_UP = 1 << 15,
+	k_p_CTRL_L = 1 << 16,
+	k_p_SHIFT_L = 1 << 17,
+	k_p_SHIFT_R = 1 << 18,
+	k_p_CTRL_R = 1 << 19,
 	k_p_NOT_DRAWN = 1 << 32
 };
 

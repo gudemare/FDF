@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 06:37:01 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/13 21:31:08 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/14 23:10:31 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@ void	apply_key(t_fdf *d)
 		d->y_offset -= 10;
 	if (d->keys & k_p_DOWN)
 		d->y_offset += 10;
+	if (d->keys & k_p_KP_P)
+		d->zoom++;
+	if (d->keys & k_p_KP_M)
+		d->zoom--;
 }
 
 int		fdf_loop(void *param)
