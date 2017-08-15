@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 06:35:30 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/15 02:09:47 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/15 03:01:13 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,18 @@ void	draw_line(t_fdf *d, int x1, int y1, int col)
 	int		px_count;
 	int		i;
 
-	if ((x1 < 0 && d->x < 0) || (x1 >= WIDTH || d->x >= WIDTH)
+	if ((x1 < 0 && d->x < 0) || (x1 >= WIDTH && d->x >= WIDTH)
 			|| (y1 < 0 && d->y < 0) || (y1 > HEIGHT && d->y >= HEIGHT))
-		return ;
+		ft_putendl_fd("Bad line !", 2);
 	dx = x1 - d->x;
 	dy = y1 - d->y;
 	px_count = ft_max(fabs(dx), fabs(dy));
+	dx /= px_count;
+	dy /= px_count;
 	i = 0;
 	while (i < px_count)
 	{
-		pxput(d, d->x + (dx / px_count) * i,
-				d->y + (dy / px_count) * i, col);
+		pxput(d, d->x + (dx * i), d->y + (dy * i), col);
 		i++;
 	}
 }
@@ -70,5 +71,5 @@ void	pxput(t_fdf *d, int x, int y, int color)
 {
 	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
 		return ;
-	*((int*)d->addr + (x) + (y * d->l_size_4)) = color;
+	*((int*)d->addr + (x * d->l_size_4) + (y)) = color;
 }

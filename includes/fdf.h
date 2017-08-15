@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 02:46:48 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/15 01:51:14 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/15 02:43:36 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct	s_fdf
 	int					**color;
 	int					map_height;
 	int					map_width;
+	int					x_origin;
+	int					y_origin;
 	int					x;
 	int					y;
 	int					x_offset;

@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 07:04:16 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/14 22:51:53 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/15 03:07:21 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@ int			handle_key_press(int x_event, void *param)
 		d->keys = 0;
 		d->keys |= k_p_NOT_DRAWN;
 	}
+	else if (x_event == k_KP_P)
+		d->zoom++;
+	else if (x_event == k_KP_M)
+		d->zoom--;
 	else
 		d->keys |= d->bitshifts[x_event];
 	return (1);
