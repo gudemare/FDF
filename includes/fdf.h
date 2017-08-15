@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 02:46:48 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/14 22:50:50 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/15 01:51:14 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include "mlx.h"
 # include <math.h>
 
-# define WIDTH 2560
-# define HEIGHT 1440
+# define WIDTH 2400
+# define HEIGHT 1300
 
 typedef struct	s_fdf
 {

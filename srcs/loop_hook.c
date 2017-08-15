@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 06:37:01 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/14 23:14:46 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/15 02:12:32 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@
 
 int		get_case_size(t_fdf *d)
 {
-	return (ft_max(ft_min(HEIGHT / d->map_height,
-		WIDTH / d->map_width), 1) + d->zoom);
+	static int	ret = 0;
+
+	if (ret == 0)
+		ret = ft_max(ft_min(HEIGHT / d->map_height,
+		WIDTH / d->map_width), 1);
+	return (ret * d->zoom);
 }
 
 void	draw_cases(t_fdf *d)
@@ -26,10 +30,10 @@ void	draw_cases(t_fdf *d)
 	int			j;
 	const int	case_size = get_case_size(d);
 
-	i = (d->y_offset < 0) ? abs(d->y_offset - 1) : -1;
+	i = (d->y_offset < 0) ? abs(d->y_offset) - 1 : -1;
 	while (++i < d->map_height)
 	{
-		j = (d->x_offset < 0) ? abs(d->x_offset - 1) : -1;
+		j = (d->x_offset < 0) ? abs(d->x_offset) - 1 : -1;
 		if ((d->y = (d->y_offset + i) * case_size) < HEIGHT)
 			while (++j < d->map_width)
 				if ((d->x = (d->x_offset + j) * case_size) < WIDTH)
