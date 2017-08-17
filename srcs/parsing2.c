@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 11:37:04 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/15 02:45:38 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/17 10:27:23 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void		fill_grid(t_fdf *d, char *s)
 		while (++j < d->map_width)
 		{
 			d->grid[i][j] = get_next_point_value(&s);
-			d->color[i][j] = get_next_point_color(d, i, j, &s);
+			d->color[i][j] = (get_next_point_color(d, i, j, &s) + 5) * 2550;
 		}
 	}
 	while (*s && *s == ' ')
