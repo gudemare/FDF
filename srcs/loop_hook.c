@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 06:37:01 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/18 03:32:10 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/18 03:39:58 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,14 @@ static void	draw_img(t_fdf *d, float max_z)
 			{
 				set_point(d, &(l.p2), j, i + 1);
 				l.c2 = d->color[j][i + 1] * d->color_mod;
-				if (l.p1.z >= max_z && l.p2.z >= max_z)
+				if (!d->fov || (l.p1.z >= max_z && l.p2.z >= max_z))
 					draw_line(d, l.p1, l.p2, (l.c1 + l.c2) / 2);
 			}
 			if (j + 1 < d->map_height)
 			{
 				set_point(d, &(l.p2), j + 1, i);
 				l.c2 = d->color[j + 1][i] * d->color_mod;
-				if (l.p1.z >= max_z && l.p2.z >= max_z)
+				if (!d->fov || (l.p1.z >= max_z && l.p2.z >= max_z))
 					draw_line(d, l.p1, l.p2, (l.c1 + l.c2) / 2);
 			}
 		}
