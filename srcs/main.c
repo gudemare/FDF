@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 02:47:44 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/17 12:09:16 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/18 03:25:45 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ int			main(int ac, char **av)
 	parse_map(&d, av[1]);
 	ft_printf("Map %s (%d * %d) loaded.\n",
 			ft_basename(av[1]), d.map_width, d.map_height);
-	d.width = ft_min(SCREEN_WIDTH, 200 + (d.map_width * 5));
-	d.height = ft_min(SCREEN_HEIGHT, 200 + (d.map_height * 5));
+	d.width = ft_min(SCREEN_WIDTH, 200 + (d.map_width * 30));
+	d.height = ft_min(SCREEN_HEIGHT, 200 + (d.map_height * 30));
 	d.mlx = mlx_init();
 	d.win = mlx_new_window(d.mlx, d.width, d.height, "fdf");
 	d.img = mlx_new_image(d.mlx, d.width, d.height);

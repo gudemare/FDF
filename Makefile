@@ -6,7 +6,7 @@
 #    By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/18 01:13:53 by gudemare          #+#    #+#              #
-#    Updated: 2017/08/17 05:04:37 by gudemare         ###   ########.fr        #
+#    Updated: 2017/08/18 02:47:00 by gudemare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME			=	fdf
 #                            Compilation parameters                            #
 #==============================================================================#
 CC				=	clang
-CFLAGS			=	-Wall -Wextra #-Werror
+CFLAGS			=	-Wall -Wextra -Werror
 
 LIBS			=	libft,mlx
 LIBFT_DIR		=	libft

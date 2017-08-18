@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 11:37:04 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/17 10:27:23 by gudemare         ###   ########.fr       */
+/*   Updated: 2017/08/18 01:09:09 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	get_next_point_color(t_fdf *d, int i, int j, char **s)
 		while (ft_isxdigit(**s))
 			(*s)++;
 	}
-	return (abs(d->grid[i][j] * 1050));
+	return (abs(d->grid[i][j]));
 }
 
 void		fill_grid(t_fdf *d, char *s)
